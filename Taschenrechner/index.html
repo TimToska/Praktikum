@@ -96,3 +96,129 @@
         </form>
 
   </body>
+
+  <script>
+    document.getElementsByTagName("h1")[0].style.fontSize = "80px";
+
+
+
+    var ele1 = document.getElementById('Eins')
+    var ele2 = document.getElementById('Zwei')
+    var ele3 = document.getElementById('Drei')
+    var ele4 = document.getElementById('Vier')
+    var ele5 = document.getElementById('Fünf')
+    var ele6 = document.getElementById('Sechs')
+    var ele7 = document.getElementById('Sieben')
+    var ele8 = document.getElementById('Acht')
+    var ele9 = document.getElementById('Neun')
+    var elePlus = document.getElementById('Plus')
+    var eleMinus = document.getElementById('Minus')
+    var eleMultiplizieren = document.getElementById('Multiplizieren')
+    var eleDividieren = document.getElementById('Dividieren')
+    var eleDisplay = document.getElementById('Ergebnisfeld')
+    var eleGleich = document.getElementById('Ergebnis')
+
+
+    var currentValue = 0
+    var savedValue = 0
+    var operator = "+"
+    var operator1 = "-"
+
+
+
+
+
+
+
+
+    function handleGleich() {
+      var ergebnis;
+      if (operator == "+") ergebnis = savedValue + currentValue
+      if (operator == "-") ergebnis = savedValue - currentValue
+      if (operator == "*") ergebnis = savedValue * currentValue
+      if (operator == "/") ergebnis = savedValue / currentValue
+
+      setCurrentValue(ergebnis)
+    }
+
+    function handleNumber(n) {
+      currentValue = currentValue * 10 + n
+      console.log("X:", currentValue)
+      setCurrentValue(currentValue);
+    }
+
+
+    function setCurrentValue(val) {
+      currentValue = val;
+      eleDisplay.setAttribute("value", currentValue)
+    }
+
+
+
+    function handleOperator(op) {
+      operator = op;
+      // wert merken
+      savedValue = currentValue;
+
+      setCurrentValue(0)
+
+    }
+
+
+
+
+
+
+    ele1.addEventListener('click', function () {
+      handleNumber(1)
+    })
+    ele2.addEventListener('click', function () {
+      handleNumber(2)
+    })
+    ele3.addEventListener('click', function () {
+      handleNumber(3)
+    })
+    ele4.addEventListener('click', function () {
+      handleNumber(4)
+    })
+    ele5.addEventListener('click', function () {
+      handleNumber(5)
+    })
+    ele6.addEventListener('click', function () {
+      handleNumber(6)
+    })
+    ele7.addEventListener('click', function () {
+      handleNumber(7)
+    })
+    ele8.addEventListener('click', function () {
+      handleNumber(8)
+    })
+    ele9.addEventListener('click', function () {
+      handleNumber(9)
+    })
+    elePlus.addEventListener('click', function () {
+      handleOperator("+")
+    })
+    eleMinus.addEventListener('click', function () {
+      handleOperator("-")
+    })
+    eleMultiplizieren.addEventListener('click', function () {
+      handleOperator("*")
+
+    })
+    eleDividieren.addEventListener('click', function () {
+      handleOperator("/")
+    })
+    eleGleich.addEventListener('click', handleGleich);
+    eleGleich1.addEventListener('click', handleGleich1);
+  </script>
+
+  <style>
+    body {
+      background-color: #a3d5d3;
+    }
+
+    #Ergebnisfeld {
+      font-size: 65px;
+    }
+  </style>
